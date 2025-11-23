@@ -116,55 +116,57 @@ export default function PaymentReview() {
 
       } else {
         // Fallback: Simulate payment for non-Aeon payments
-        console.log('Using fallback payment simulation')
+        // console.log('Using fallback payment simulation')
+
+        toast.error("Missing wallet address or Aeon parameters");
 
         // Stage 1: Check balances across chains
-        await new Promise(resolve => setTimeout(resolve, 1500))
-        setProgress(25)
-        toast.info("Checking your balances across chains...")
+        // await new Promise(resolve => setTimeout(resolve, 1500))
+        // setProgress(25)
+        // toast.info("Checking your balances across chains...")
 
-        // Stage 2: Determine if bridging is needed
-        setStage('bridging')
-        setProgress(40)
+        // // Stage 2: Determine if bridging is needed
+        // setStage('bridging')
+        // setProgress(40)
 
-        // Simulate bridging (if needed)
-        const needsBridge = Math.random() > 0.5 // Mock: 50% chance needs bridge
+        // // Simulate bridging (if needed)
+        // const needsBridge = Math.random() > 0.5 // Mock: 50% chance needs bridge
 
-        if (needsBridge) {
-          toast.info("Bridging funds to target network...")
-          await new Promise(resolve => setTimeout(resolve, 3000))
-          setProgress(70)
-        } else {
-          setProgress(70)
-        }
+        // if (needsBridge) {
+        //   toast.info("Bridging funds to target network...")
+        //   await new Promise(resolve => setTimeout(resolve, 3000))
+        //   setProgress(70)
+        // } else {
+        //   setProgress(70)
+        // }
 
-        // Stage 3: Execute payment
-        setStage('executing')
-        setProgress(85)
-        toast.info("Executing payment...")
+        // // Stage 3: Execute payment
+        // setStage('executing')
+        // setProgress(85)
+        // toast.info("Executing payment...")
 
-        // Simulate payment execution
-        await new Promise(resolve => setTimeout(resolve, 2000))
+        // // Simulate payment execution
+        // await new Promise(resolve => setTimeout(resolve, 2000))
 
-        // Mock transaction hash
-        const mockTxHash = '0x' + Array.from({ length: 64 }, () =>
-          Math.floor(Math.random() * 16).toString(16)
-        ).join('')
+        // // Mock transaction hash
+        // const mockTxHash = '0x' + Array.from({ length: 64 }, () =>
+        //   Math.floor(Math.random() * 16).toString(16)
+        // ).join('')
 
-        setTransactionHash(mockTxHash)
-        setProgress(100)
-        setStage('complete')
-        toast.success("Payment successful!")
+        // setTransactionHash(mockTxHash)
+        // setProgress(100)
+        // setStage('complete')
+        // toast.success("Payment successful!")
 
-        // Wait a moment then navigate to success page
-        setTimeout(() => {
-          navigate("/payment-success", {
-            state: {
-              transactionHash: mockTxHash,
-              paymentRequest
-            }
-          })
-        }, 2000)
+        // // Wait a moment then navigate to success page
+        // setTimeout(() => {
+        //   navigate("/payment-success", {
+        //     state: {
+        //       transactionHash: mockTxHash,
+        //       paymentRequest
+        //     }
+        //   })
+        // }, 2000)
       }
 
     } catch (error: any) {
